@@ -11,7 +11,7 @@ const DeliveryOne = () => {
 
   return (
     <ImageBackground
-    source={require('../../assets/images/backgoundtwo.jpg')}
+    source={require('../../assets/images/original1.jpg')}
     style={styles.backgroundImage}
   >
     <SafeAreaView>

@@ -12,13 +12,13 @@ const DeliveryThree = () => {
 
   return (
     <ImageBackground
-    source={require('../../assets/images/backgroundfour.jpg')}
+    source={require('../../assets/images/original3.jpg')}
     style={styles.backgroundImage}
   >
     <SafeAreaView>
       <Stack.Screen
         options={{
-          headerStyle: { backgroundColor: '#dc143c' },
+          headerStyle: { backgroundColor: '#dcdcdc' },
           headerShadowVisible: false,
           headerTitle: "",
         }}

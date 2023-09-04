@@ -12,13 +12,13 @@ const DeliveryTwo = () => {
 
   return (
     <ImageBackground
-    source={require('../../assets/images/backgroundthree.jpg')}
+    source={require('../../assets/images/original2.jpg')}
     style={styles.backgroundImage}
   >
     <SafeAreaView>
       <Stack.Screen
         options={{
-          headerStyle: { backgroundColor: 'lightgrey' },
+          headerStyle: { backgroundColor: '#dcdcdc' },
           headerShadowVisible: false,
           headerTitle: "",
         }}

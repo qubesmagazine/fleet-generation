@@ -12,6 +12,7 @@ const Tab = () => {
     { icon: "bike-fast", section: "DeliveryOne" },
     { icon: "truck-delivery", section: "DeliveryTwo" },
     { icon: "briefcase", section: "JobAvailability" },
+    { icon: "wallet", section: "Wallet" },
   ];
 
   const renderItem = ({ item, index }) => {

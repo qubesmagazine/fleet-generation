@@ -31,17 +31,17 @@ const Home = ({ navigation, route }) => {
 
   return (
     <ImageBackground
-    source={require('../assets/images/pinkred.jpg')}
+    source={require('../assets/images/original1.jpg')}
     style={styles.backgroundImage}
   >
     <SafeAreaView>
       <Stack.Screen
         options={{
-          headerStyle: { backgroundColor: '#dc143c' },
+          headerStyle: { backgroundColor: '#dcdcdc' },
           headerShadowVisible: false,
           headerLeft: () => (
             <TouchableOpacity onPress={toggleMenu} style={{ marginLeft: 15 }}>
-              <EvilIcons name="navicon" size={30} color="black" /> 
+              <EvilIcons name="navicon" size={30} color="#dc143c" /> 
             </TouchableOpacity>
           ),
           headerRight: () => (
@@ -52,7 +52,7 @@ const Home = ({ navigation, route }) => {
                 style={styles.icon}
               >
               <View>
-                <EvilIcons name="user" size={30} color="black" /> 
+                <EvilIcons name="user" size={30} color="#dc143c" /> 
               </View>
             </Animatable.View>
             </TouchableOpacity>

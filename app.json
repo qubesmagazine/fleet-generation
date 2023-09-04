@@ -8,6 +8,23 @@
       "expo-router"
     ],
     "name": "fleet-generation",
-    "slug": "fleet-generation"
+    "slug": "fleet-generation",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "6a001cbd-a386-4a5c-870c-6cbddd69055a"
+      }
+    },
+    "owner": "qubesmagazine",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/6a001cbd-a386-4a5c-870c-6cbddd69055a"
+    },
+    "android": {},
+    "ios": {}
   }
 }

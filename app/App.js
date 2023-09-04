@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import WelcomeScreen from "./index";
 import WelcomeNext from "./WelcomeNext";
-import Login from "./Login";
+// import Login from "./Login";
 import SignUp from "./SignUp";
 import ForgortenPassword from "./ForgortenPassword";
 import Home from "./Home";
@@ -24,11 +24,11 @@ function App() {
           component={WelcomeNext}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Login"
           component={Login}
           options={{ headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="SignUp"
           component={SignUp}
