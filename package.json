@@ -41,7 +41,8 @@
     "react-native-vector-icons-font-awesome6": "^9.2.3",
     "react-native-video": "^5.2.1",
     "react-native-web": "~0.19.6",
-    "expo-updates": "~0.18.12"
+    "expo-updates": "~0.18.12",
+    "expo-barcode-scanner": "~12.5.3"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
