@@ -31,7 +31,7 @@ const Login = ({ toggleModal }) => {
   
       setIsLoading(true); // Show the activity indicator
   
-      const response = await axios.post('https://fleet-deliveryapi.onrender.com/api/users/login', {
+      const response = await axios.post('', {
         email,
         password,
       });
