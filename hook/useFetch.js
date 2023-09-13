@@ -9,7 +9,7 @@ const useFetch = (endpoint, query) => {
 
   const options = {
     method: "GET",
-    url: `https://fleet-deliveryapi.onrender.com/api/${endpoint}`,
+    url: ``,
 
     params: { ...query },
   };
