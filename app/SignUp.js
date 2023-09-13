@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import axios from 'axios'; // Import Axios for making HTTP requests
+import axios from 'axios';
 import { Stack } from 'expo-router';
 
 const SignUp = () => {
@@ -12,13 +12,16 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); 
 
   const handleSubmit = async () => {
     try {
       setError(null);
+      setIsLoading(true); 
 
       if (!name || !surname || !phoneNumber || !email || !password) {
         setError('All fields are mandatory.');
+        setIsLoading(false); 
         return;
       }
 
@@ -32,19 +35,21 @@ const SignUp = () => {
       );
 
       if (response.status === 201) {
-        navigation.navigate('Login'); // Navigate to the login page after successful registration
+        navigation.navigate('Login');
       } else {
         setError('Registration failed. Please check your details.');
       }
     } catch (error) {
       setError('An error occurred while registering. Please try again later.');
       console.error('Error registering:', error);
+    } finally {
+      setIsLoading(false); 
     }
   };
 
   return (
     <View style={styles.container}>
-      <Stack.Screen
+  <Stack.Screen
         options={{
           headerStyle: { backgroundColor: 'Black', color: 'white' },
           headerShadowVisible: false,
@@ -89,9 +94,13 @@ const SignUp = () => {
         value={password}
         onChangeText={(text) => setPassword(text)}
       />
-      <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-        <Text style={styles.submitButtonText}>Submit</Text>
-      </TouchableOpacity>
+      {isLoading ? (
+        <ActivityIndicator size="large" color="blue" /> 
+      ) : (
+        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+          <Text style={styles.submitButtonText}>Submit</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -133,6 +142,160 @@ const styles = StyleSheet.create({
 });
 
 export default SignUp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+// import { useNavigation } from '@react-navigation/native';
+// import axios from 'axios'; // Import Axios for making HTTP requests
+// import { Stack } from 'expo-router';
+
+// const SignUp = () => {
+//   const navigation = useNavigation();
+//   const [name, setName] = useState('');
+//   const [surname, setSurname] = useState('');
+//   const [phoneNumber, setPhoneNumber] = useState('');
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+//   const [error, setError] = useState(null);
+
+//   const handleSubmit = async () => {
+//     try {
+//       setError(null);
+
+//       if (!name || !surname || !phoneNumber || !email || !password) {
+//         setError('All fields are mandatory.');
+//         return;
+//       }
+
+//       const response = await axios.post(
+//         'https://fleet-deliveryapi.onrender.com/api/users/register',
+//         {
+//           username: `${name} ${surname}`,
+//           email,
+//           password,
+//         }
+//       );
+
+//       if (response.status === 201) {
+//         navigation.navigate('Login'); // Navigate to the login page after successful registration
+//       } else {
+//         setError('Registration failed. Please check your details.');
+//       }
+//     } catch (error) {
+//       setError('An error occurred while registering. Please try again later.');
+//       console.error('Error registering:', error);
+//     }
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <Stack.Screen
+//         options={{
+//           headerStyle: { backgroundColor: 'Black', color: 'white' },
+//           headerShadowVisible: false,
+//           headerTitle: 'Sign Up',
+//         }}
+//       />
+//       <Text style={styles.heading}>Sign Up</Text>
+//       {error && <Text style={styles.errorText}>{error}</Text>}
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Name"
+//         placeholderTextColor="black"
+//         value={name}
+//         onChangeText={(text) => setName(text)}
+//       />
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Surname"
+//         placeholderTextColor="black"
+//         value={surname}
+//         onChangeText={(text) => setSurname(text)}
+//       />
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Phone number"
+//         placeholderTextColor="black"
+//         value={phoneNumber}
+//         onChangeText={(text) => setPhoneNumber(text)}
+//       />
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Email"
+//         placeholderTextColor="black"
+//         value={email}
+//         onChangeText={(text) => setEmail(text)}
+//       />
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Password"
+//         placeholderTextColor="black"
+//         secureTextEntry={true}
+//         value={password}
+//         onChangeText={(text) => setPassword(text)}
+//       />
+//       <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+//         <Text style={styles.submitButtonText}>Submit</Text>
+//       </TouchableOpacity>
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: 'grey',
+//     padding: 15
+//   },
+//   heading: {
+//     fontSize: 30,
+//     fontWeight: 'bold',
+//     alignSelf: 'center',
+//     marginVertical: 20,
+//   },
+//   input: {
+//     borderWidth: 1,
+//     borderColor: 'black',
+//     borderRadius: 10,
+//     paddingHorizontal: 10,
+//     marginBottom: 10,
+//     height: 40,
+//   },
+//   errorText: {
+//     color: 'red',
+//     marginBottom: 10,
+//   },
+//   submitButton: {
+//     backgroundColor: 'blue',
+//     borderRadius: 10,
+//     paddingVertical: 10,
+//     marginTop: 10,
+//   },
+//   submitButtonText: {
+//     color: 'white',
+//     alignSelf: 'center',
+//   },
+// });
+
+// export default SignUp;
 
 
 

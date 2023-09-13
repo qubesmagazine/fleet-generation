@@ -12,3 +12,13 @@ npx create-expo-app -e with-router
 
 - [Expo Router: Docs](https://expo.github.io/router)
 - [Expo Router: Repo](https://github.com/expo/router)
+
+
+
+FLEET IOS DOWNLOAD BARCODE ON EXPO GO
+
+<img src='/FLEET-IOS.png'>
+
+FLEET ANDROID DOWNLOAD BARCODE ON EXPO GO
+
+<img src='/FLEET-ANDROID.png'>
